@@ -1,2 +1,4 @@
 *.less #themes
+old_theme.less
+
 !theme.less
