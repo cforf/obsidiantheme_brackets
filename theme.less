@@ -1,0 +1,186 @@
+/*
+ * Obsidian <Brackets> Theme
+ */
+
+
+/* Define some variables used in multiple places */
+@background: #2C4152;
+@foreground: #C8CACC;
+
+@string-color		: #EC7600;	/*  as the name suggests  */
+@header-color		: #A11700;	/*  Used to the <!Doctype or <?xml type of text  */
+@attribute-color	: #9F82BD;	/*  used for the HTML attribute  */
+@comment-color		: #66757B;	/*  for the comments  */
+@error-color		: #dc322f;	/*  the error color */
+//css-->
+@property-name-color	: #C8CACC; // the css property color
+@css-tag-color      : #D7C68C; // css tag color
+@css-id-color       : #BEDC18; // css id color
+@css-class-color    : #AEC916; // css class color
+@css-directive      : #C9458D; //
+@css-operators      : #99BACA; // css operators
+
+@tag-color		: #158a18;	/*  the tag selector color  */ //?????!!!!
+
+@search-matches-color	: #ffff00;	/*  the bg color of text which matches the search string  */
+@selection-color	: #000000;	/*  the bg color of text which is teh current search match  */
+@line-nos-color		: #666666;	/*  the color of the line nos text  */
+@selection-non-focus	: #C0FC67;	/*  text bg color of selection when app not in focus  */
+@active-line-bg		: #415566;//#44657F;//#42627B;	/*  bg color of active line  */
+
+@folder-triangle-color	: #d0d0d0;	/*  color of the code folding triangle  */
+@folder-triangle-hover	: #c0c0c0;	/*  color of the code folding triangle when hovered  */
+@folder-code-bg		: #c3c;	/*  bg of the folded code  */
+@selector-color		: #BB96CB;	/*  text color for the keywords  */
+@number-color		: #FFCD22;	/*  text color for numbers  */
+@selected-text-color	: #4c4;		/*  text color when its selected  */
+
+/* Code Styling */
+
+.CodeMirror, .CodeMirror-scroll {
+    background-color: @background;
+    color: @foreground;
+}
+
+.CodeMirror-focused .CodeMirror-activeline-background {
+    background: @active-line-bg;
+}
+
+.show-line-padding .CodeMirror-focused .CodeMirror-activeline-background {
+    box-shadow: inset 15px 0 0 0 #000;
+}
+
+.CodeMirror-focused .CodeMirror-activeline {
+    .CodeMirror-gutter-elt {
+        background: rgba(0, 0, 0, 0.25);//@active-line-bg;//rgba(0, 0, 0, 0.2);
+        color: @foreground;//@foreground;
+    }
+    .inline-widget .CodeMirror-gutter-elt {
+        color: #767676;
+    }
+}
+
+.cm-atom, .cm-string, .cm-string-2, .cm-hr {color: @string-color;}
+.cm-number, .cm-attribute, .cm-plus {color: @number-color;}
+.cm-def, .cm-property {color: @property-name-color;}
+.cm-variable, .cm-variable-2, .cm-variable-3, .cm-operator, .cm-meta, .cm-bracket {color: @foreground;}
+.cm-comment {color: @comment-color;}
+.cm-minus {color: #dc322f;}
+.cm-header {color: #d85896;}
+.cm-link {color: #b77fdb; text-decoration: none;}
+.cm-rangeinfo {color: #6c71c4;}
+.cm-keyword, .cm-qualifier, .cm-builtin, .cm-tag, .cm-quote {color: #6c9ef8;}
+.cm-error {color: #dc322f;}
+
+/* Extra CSS */
+
+.CodeMirror-searching {
+    background-color: #d3cd69;
+    &.searching-current-match {
+        background-color: #f6a644;
+    }
+}
+
+
+.CodeMirror-cursor {
+    border-left: 2px solid #c5c8c6 !important;
+}
+
+.CodeMirror-gutters {
+    background-color: @background;
+    border-right: none;
+}
+
+.CodeMirror-linenumber {
+    color: @comment-color;//#767676;
+}
+
+.CodeMirror .CodeMirror-selected {
+    background: #333f48;
+}
+.CodeMirror-focused .CodeMirror-selected {
+    background: #0050a0;
+}
+
+.CodeMirror-matchingbracket, .CodeMirror-matchingtag {
+    /* Ensure visibility against gray inline editor background */
+    background-color: #2e5c00;
+    color: @foreground !important;
+}
+
+.CodeMirror-overwrite .CodeMirror-cursor {
+    border-left: none !important;
+    border-bottom: 1px solid #fff;
+}
+
+/*
+    CodeMirror's use of descendant selectors for certain styling causes problems when editors are
+    nested because, for items in the inner editor, the left-hand clause in the selector will now
+    match either the actual containing CodeMirror instance *OR* the outer "host" CodeMirror instance.
+    TODO (issue #324): We'll still have problems if editors can be nested more than one level deep,
+    or if any other descendant-selector-driven CM styles can differ between inner & outer editors
+    (potential problem areas include line wrap and coloring theme: basically, anything in codemirror.css
+    that uses a descandant selector where the CSS class name to the left of the space is something
+    other than a vanilla .CodeMirror)
+ */
+
+.CodeMirror {
+    .CodeMirror {
+        background: transparent;
+    }
+
+    .CodeMirror .CodeMirror-gutters {
+        background: transparent;
+        border-right: none;
+    }
+
+    .CodeMirror .CodeMirror-activeline-background {
+        background: transparent;
+    }
+
+    .CodeMirror .CodeMirror-activeline .CodeMirror-gutter-elt {
+        background: transparent;
+        color: #767676;
+    }
+
+    .CodeMirror-focused .CodeMirror-activeline-background {
+        background: #2f2f2f;
+    }
+
+    .CodeMirror-focused .CodeMirror-activeline {
+        .CodeMirror-gutter-elt {
+            background: rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+    }
+}
+
+.CodeMirror-foldgutter-open:after {
+    color: @comment-color;//#666;
+}
+.CodeMirror-foldgutter-folded:after {
+    color: @foreground;//#aaa;
+}
+
+.CodeMirror.over-gutter, .CodeMirror-activeline {
+    .CodeMirror-foldgutter-open:after {
+        color: @foreground;//#888;
+    }
+}
+
+.CodeMirror-foldmarker {
+    border-color: #000;
+    color: #ccc;
+    background-color: #444;
+}
+
+/* Non-editor styling */
+
+.image-view,
+.not-editor {
+    background-color: @background;
+}
+
+.view-pane .image-view {
+    color: @foreground;
+}
