@@ -12,6 +12,7 @@
 @attribute-color	: #9F82BD;	/*  used for the HTML attribute  */
 @comment-color		: #66757B;	/*  for the comments  */
 @error-color		: #dc322f;	/*  the error color */
+
 //css-->
 @property-name-color	: #C8CACC; // the css property color
 @css-tag-color      : #D7C68C; // css tag color
@@ -19,8 +20,10 @@
 @css-class-color    : #AEC916; // css class color
 @css-directive      : #C9458D; //
 @css-operators      : #99BACA; // css operators
+@css-pseudo-class   : #74C6E4; // css pseudoclass
+@css-variable       : #9CB1DA; // css variable
 
-@tag-color		: #158a18;	/*  the tag selector color  */ //?????!!!!
+@tag-color		: #A2D356;	//  the tag selector color
 
 @search-matches-color	: #ffff00;	/*  the bg color of text which matches the search string  */
 @selection-color	: #000000;	/*  the bg color of text which is teh current search match  */
@@ -60,17 +63,25 @@
     }
 }
 
-.cm-atom, .cm-string, .cm-string-2, .cm-hr {color: @string-color;}
-.cm-number, .cm-attribute, .cm-plus {color: @number-color;}
+//for CSS-->
+.cm-m-css{
+    color: @css-operators;
+}
+
+
+.cm-string, .cm-string-2, .cm-hr {color: @string-color;}
+.cm-atom {color: @selector-color}
+.cm-number {color: @number-color;}
+.cm-attribute, .cm-plus {color: @attribute-color;}
 .cm-def, .cm-property {color: @property-name-color;}
 .cm-variable, .cm-variable-2, .cm-variable-3, .cm-operator, .cm-meta, .cm-bracket {color: @foreground;}
 .cm-comment {color: @comment-color;}
-.cm-minus {color: #dc322f;}
-.cm-header {color: #d85896;}
-.cm-link {color: #b77fdb; text-decoration: none;}
-.cm-rangeinfo {color: #6c71c4;}
-.cm-keyword, .cm-qualifier, .cm-builtin, .cm-tag, .cm-quote {color: #6c9ef8;}
-.cm-error {color: #dc322f;}
+.cm-minus, .cm-error {color: @error-color;}
+.cm-header {color: @header-color;}
+.cm-link {color: @property-name-color; text-decoration: none;}
+.cm-rangeinfo {color: @tag-color;}
+.cm-keyword, .cm-qualifier, .cm-builtin, .cm-tag, .cm-quote {color: @property-name-color;
+}
 
 /* Extra CSS */
 
@@ -99,7 +110,7 @@
     background: #333f48;
 }
 .CodeMirror-focused .CodeMirror-selected {
-    background: #0050a0;
+    background: @selection-color;
 }
 
 .CodeMirror-matchingbracket, .CodeMirror-matchingtag {
@@ -111,6 +122,54 @@
 .CodeMirror-overwrite .CodeMirror-cursor {
     border-left: none !important;
     border-bottom: 1px solid #fff;
+}
+
+
+/*--------------------------------------------*/
+/*	   CSS or Stylus Specific	      */
+/*--------------------------------------------*/
+
+.cm-m-css.cm-tag, .cm-m-stylus.cm-tag{
+    color: @css-tag-color;
+}
+.cm-m-css.cm-qualifier, .cm-m-stylus.cm-qualifier{//class
+    color: @css-class-color;
+}
+.cm-m-css.cm-builtin, .cm-m-stylus.cm-builtin{//id
+    color: @css-id-color;
+    font-weight: bold;
+}
+.cm-m-css.cm-def, .cm-m-stylus.cm-def{//directive
+    color: @css-directive;
+}
+.cm-variable, .cm-m-stylus.cm-variable{
+    color: @attribute-color;
+}
+.cm-m-css.cm-operator, .cm-m-css.cm-bracket, .cm-m-stylus.cm-operator, .cm-m-stylus.cm-bracket{
+    color: @css-operators;
+}
+.cm-m-css.cm-variable-3, .cm-m-stylus.cm-variable-3{
+    color: @css-pseudo-class;
+}
+.cm-m-css.cm-keyword, .cm-m-stylus.cm-keyword{
+    color: #C9458D;
+}
+.cm-m-css.cm-comment, .cm-m-stylus.cm-comment {
+    color: #50809C;
+}
+.cm-m-css.cm-variable-2, .cm-m-stylus.cm-variable-2{
+    color: @css-variable;
+}
+
+/*--------------------------------------------*/
+/*	             HTML Specific      	      */
+/*--------------------------------------------*/
+.cm-m-xml.cm-tag{
+    color: @tag-color;
+}
+.cm-m-xml.cm-meta {
+    color: #6C9928;
+    font-style: italic;
 }
 
 /*
