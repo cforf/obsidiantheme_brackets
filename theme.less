@@ -25,6 +25,12 @@
 
 @tag-color		: #A2D356;	//  the tag selector color
 
+//js-->
+@js-operators       : #E8E1B7; // js operators
+@js-word            : #678CB1; //js word
+@js-word2           : #93C763; //js word2
+
+
 @search-matches-color	: #ffff00;	/*  the bg color of text which matches the search string  */
 @selection-color	: #000000;	/*  the bg color of text which is teh current search match  */
 @line-nos-color		: #666666;	/*  the color of the line nos text  */
@@ -67,6 +73,7 @@
 .cm-m-css{
     color: @css-operators;
 }
+
 
 
 .cm-string, .cm-string-2, .cm-hr {color: @string-color;}
@@ -175,6 +182,30 @@
 /*--------------------------------------------*/
 /*	         Javascript Specific              */
 /*--------------------------------------------*/
+.cm-m-javascript{
+    color: @js-operators;
+}
+.cm-m-javascript.cm-comment{
+    color: @comment-color;
+}
+.cm-m-javascript.cm-string, .cm-m-javascript.cm-string-2{
+    color: @string-color;
+}
+.cm-m-javascript.cm-def, .cm-m-javascript.cm-property, .cm-m-javascript.cm-variable {
+    color: @foreground;
+}
+.cm-m-javascript.cm-number{
+    color: @number-color;
+}
+.cm-m-javascript.cm-atom {
+    color: @js-word;
+}
+.cm-m-javascript.cm-keyword {
+    color: @js-word2;
+}
+.cm-m-javascript.cm-property {
+    color: @attribute-color;
+}
 
 
 
