@@ -7,11 +7,12 @@
 @background: #2C4152;
 @foreground: #C8CACC;
 
-@string-color		: #EC7600;	/*  as the name suggests  */
-@header-color		: #A11700;	/*  Used to the <!Doctype or <?xml type of text  */
-@attribute-color	: #9F82BD;	/*  used for the HTML attribute  */
-@comment-color		: #66757B;	/*  for the comments  */
-@error-color		: #dc322f;	/*  the error color */
+@string-color		: #EC7600;	// as the name suggests
+@header-color		: #A11700;	// Used to the <!Doctype or <?xml type of text
+@attribute-color	: #9F82BD;	// used for the HTML attribute
+@comment-color		: #66757B;	// for the comments
+@comment-color2     : #50809C;  // for comments
+@error-color		: #dc322f;	// the error color
 
 //css-->
 @property-name-color	: #C8CACC; // the css property color
@@ -23,30 +24,24 @@
 @css-pseudo-class   : #74C6E4; // css pseudoclass
 @css-variable       : #9CB1DA; // css variable
 
-@tag-color		: #A2D356;	//  the tag selector color
+@tag-color		: #A2D356;	// the tag selector color
 
 //js-->
 @js-operators       : #E8E1B7; // js operators
-@js-word            : #678CB1; //js word
-@js-word2           : #93C763; //js word2
+@js-word            : #678CB1; // js word
+@js-word2           : #93C763; // js word2
 
 
-@search-matches-color	: #ffff00;	/*  the bg color of text which matches the search string  */
-@selection-color	: #000000;	/*  the bg color of text which is teh current search match  */
-@line-nos-color		: #666666;	/*  the color of the line nos text  */
-@selection-non-focus	: #C0FC67;	/*  text bg color of selection when app not in focus  */
-@active-line-bg		: #415566;//#44657F;//#42627B;	/*  bg color of active line  */
+@search-matches-color	: #ffff00;	// the bg color of text which matches the search string
+@selection-color	: #000000;	// the bg color of text which is teh current search match
+@selection-non-focus	: #C0FC67;	// text bg color of selection when app not in focus
+@active-line-bg		: #415566;	// bg color of active line
+@folder-code-bg		: #609ED9;//#005bbb;	// bg of the folded code
+@selector-color		: #BB96CB;	// text color for the keywords
+@number-color		: #FFCD22;	// text color for numbers
 
-@folder-triangle-color	: #d0d0d0;	/*  color of the code folding triangle  */
-@folder-triangle-hover	: #c0c0c0;	/*  color of the code folding triangle when hovered  */
-@folder-code-bg		: #c3c;	/*  bg of the folded code  */
-@selector-color		: #BB96CB;	/*  text color for the keywords  */
-@number-color		: #FFCD22;	/*  text color for numbers  */
-@selected-text-color	: #4c4;		/*  text color when its selected  */
 
 /* Code Styling */
-
-
 
 .CodeMirror, .CodeMirror-scroll {
     background-color: @background;
@@ -64,10 +59,10 @@
 .CodeMirror-focused .CodeMirror-activeline {
     .CodeMirror-gutter-elt {
         background: rgba(0, 0, 0, 0.25);//@active-line-bg;//rgba(0, 0, 0, 0.2);
-        color: @foreground;//@foreground;
+        color: @foreground;
     }
     .inline-widget .CodeMirror-gutter-elt {
-        color: #767676;
+        color: @comment-color;
     }
 }
 
@@ -93,9 +88,14 @@
 /* Extra CSS */
 
 .CodeMirror-searching {
-    background-color: #d3cd69;
+    background-color: @search-matches-color;//@string-color;//@number-color;
+    box-shadow: 0 0 1.5em @css-tag-color;//@css-tag-color@selection-non-focus;//#FFDE6E;
+    border-radius: 0.5em;
+    border: 1pt solid @number-color;
     &.searching-current-match {
-        background-color: #f6a644;
+        background-color: @folder-code-bg;//@string-color;
+        box-shadow: none;
+        border: 1pt solid @folder-code-bg;//@string-color;
     }
 }
 
@@ -110,7 +110,7 @@
 }
 
 .CodeMirror-linenumber {
-    color: @comment-color;//#767676;
+    color: @comment-color;
 }
 
 .CodeMirror .CodeMirror-selected {
@@ -121,16 +121,10 @@
 }
 
 .CodeMirror-matchingbracket, .CodeMirror-matchingtag {
-    /* Ensure visibility against gray inline editor background */
-    background-color: #2e5c00;
-    color: @foreground !important;
-}
-
-.CodeMirror-matchingbracket, .CodeMirror-matchingtag {
     color: navy!important;
     box-shadow: 0 0 0.8em #FFDE6E;
     border-radius: 0.8em;
-    border: 1pt solid #FFCD22;
+    border: 1pt solid @number-color;
     background-color: #FFF915;
     transform: translateZ(0);
     -webkit-animation: hilightMB 2s alternate ease-in-out infinite;
@@ -155,9 +149,9 @@
         box-shadow: 0 0 0.8em transparent;
     }
     100% {
-        color: navy;
+        color: black;
         background-color: #FFF915;
-        border: 1pt solid #FFCD22;
+        border: 1pt solid @number-color;
         box-shadow: 0 0 0.8em #FFDE6E;
     }
 }
@@ -189,10 +183,10 @@
     color: @css-pseudo-class;
 }
 .cm-m-css.cm-keyword, .cm-m-stylus.cm-keyword{
-    color: #C9458D;
+    color: @css-directive;
 }
 .cm-m-css.cm-comment, .cm-m-stylus.cm-comment {
-    color: #50809C;
+    color: @comment-color2;
 }
 .cm-m-css.cm-variable-2, .cm-m-stylus.cm-variable-2{
     color: @css-variable;
@@ -231,38 +225,23 @@
     //text-shadow: 0 0 2pt #1A1B1C;
 }
 
-.cm-m-javascript.cm-qualifier {
-    //color: @attribute-color;
-    //text-shadow: 0 0 2pt #1b2c5c;
-}
 .cm-m-javascript.cm-number {
     color: @number-color;
-    //text-shadow: 0 0 1pt #EDBF20;
 }
 .cm-m-javascript.cm-string, .cm-m-javascript.cm-string-2{
     color: @string-color;
-    //text-shadow: 0 0 2pt #B95C00;
 }
 .cm-m-javascript.cm-property {
     color: @attribute-color;
-    //text-shadow: 0 0 2pt #7B6593;
-}
-/*.cm-m-javascript.cm-attribute {
-    color: #8ae5c9;
-    text-shadow: 0 0 2pt #021;
-}*/
-.cm-m-javascript.cm-variable {
-    color: @attribute-color;
-    //text-shadow: 0 0 1pt #D7AFFF;
-}
-.cm-m-javascript.cm-def, .cm-m-javascript.cm-variable-2, .cm-m-javascript.cm-variable-3 {
-    color: @foreground;//#64eaff;
-    //text-shadow: 0 0 .25em rgba(210, 140, 0, 0.79);
 }
 
-.cm-m-javascript.cm-minus, .cm-m-javascript.cm-plus {
-    color: #64eaff;
+.cm-m-javascript.cm-variable {
+    color: @attribute-color;
 }
+.cm-m-javascript.cm-def, .cm-m-javascript.cm-variable-2, .cm-m-javascript.cm-variable-3 {
+    color: @foreground;
+}
+
 
 /*
     CodeMirror's use of descendant selectors for certain styling causes problems when editors are
@@ -307,10 +286,10 @@
 }
 
 .CodeMirror-foldgutter-open:after {
-    color: @comment-color;//#666;
+    color: @comment-color;
 }
 .CodeMirror-foldgutter-folded:after {
-    color: @foreground;//#aaa;
+    color: @number-color;
 }
 
 .CodeMirror.over-gutter, .CodeMirror-activeline {
@@ -320,9 +299,12 @@
 }
 
 .CodeMirror-foldmarker {
-    border-color: #000;
-    color: #ccc;
-    background-color: #444;
+    border: 1px solid @background;//@comment-color;
+    box-shadow: 0 0 2em @comment-color2;
+    border-radius: 0.5em;
+    color: @number-color;
+    font-weight: bold;
+    background-color: @background;//@folder-code-bg;
 }
 
 
