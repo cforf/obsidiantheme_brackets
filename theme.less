@@ -1,5 +1,5 @@
 /*
- * Obsidian <Brackets> Theme
+ * Obsidian <Brackets> Theme by cforf
  */
 
 
@@ -46,6 +46,8 @@
 
 /* Code Styling */
 
+
+
 .CodeMirror, .CodeMirror-scroll {
     background-color: @background;
     color: @foreground;
@@ -73,8 +75,6 @@
 .cm-m-css{
     color: @css-operators;
 }
-
-
 
 .cm-string, .cm-string-2, .cm-hr {color: @string-color;}
 .cm-atom {color: @selector-color}
@@ -126,11 +126,41 @@
     color: @foreground !important;
 }
 
+.CodeMirror-matchingbracket, .CodeMirror-matchingtag {
+    color: navy!important;
+    box-shadow: 0 0 0.8em #FFDE6E;
+    border-radius: 0.8em;
+    border: 1pt solid #FFCD22;
+    background-color: #FFF915;
+    transform: translateZ(0);
+    -webkit-animation: hilightMB 2s alternate ease-in-out infinite;
+}
+
 .CodeMirror-overwrite .CodeMirror-cursor {
     border-left: none !important;
     border-bottom: 1px solid #fff;
 }
 
+@-webkit-keyframes hilightMB {
+    0% {
+        color: black;
+        background-color: @selection-non-focus;//#AC8CCC;
+        border: 1pt solid @js-word2;//#9F82BD;
+        box-shadow: 0 0 0.8em @selection-non-focus;//#D7AFFF;
+    }
+    50% {
+        color: #E8E1B7;
+        background-color: transparent;
+        border: 1pt solid transparent;
+        box-shadow: 0 0 0.8em transparent;
+    }
+    100% {
+        color: navy;
+        background-color: #FFF915;
+        border: 1pt solid #FFCD22;
+        box-shadow: 0 0 0.8em #FFDE6E;
+    }
+}
 
 /*--------------------------------------------*/
 /*	        CSS or Stylus Specific	          */
@@ -185,29 +215,54 @@
 .cm-m-javascript{
     color: @js-operators;
 }
+
+.cm-m-javascript.cm-keyword {
+    color: @js-word2;
+    //text-shadow: 0 0 1pt #606958;
+}
+
+.cm-m-javascript.cm-atom {
+    color: @js-word;
+    //text-shadow: 0 0 1pt #81B6EC;
+}
+
 .cm-m-javascript.cm-comment{
     color: @comment-color;
+    //text-shadow: 0 0 2pt #1A1B1C;
+}
+
+.cm-m-javascript.cm-qualifier {
+    //color: @attribute-color;
+    //text-shadow: 0 0 2pt #1b2c5c;
+}
+.cm-m-javascript.cm-number {
+    color: @number-color;
+    //text-shadow: 0 0 1pt #EDBF20;
 }
 .cm-m-javascript.cm-string, .cm-m-javascript.cm-string-2{
     color: @string-color;
-}
-.cm-m-javascript.cm-def, .cm-m-javascript.cm-property, .cm-m-javascript.cm-variable {
-    color: @foreground;
-}
-.cm-m-javascript.cm-number{
-    color: @number-color;
-}
-.cm-m-javascript.cm-atom {
-    color: @js-word;
-}
-.cm-m-javascript.cm-keyword {
-    color: @js-word2;
+    //text-shadow: 0 0 2pt #B95C00;
 }
 .cm-m-javascript.cm-property {
     color: @attribute-color;
+    //text-shadow: 0 0 2pt #7B6593;
+}
+/*.cm-m-javascript.cm-attribute {
+    color: #8ae5c9;
+    text-shadow: 0 0 2pt #021;
+}*/
+.cm-m-javascript.cm-variable {
+    color: @attribute-color;
+    //text-shadow: 0 0 1pt #D7AFFF;
+}
+.cm-m-javascript.cm-def, .cm-m-javascript.cm-variable-2, .cm-m-javascript.cm-variable-3 {
+    color: @foreground;//#64eaff;
+    //text-shadow: 0 0 .25em rgba(210, 140, 0, 0.79);
 }
 
-
+.cm-m-javascript.cm-minus, .cm-m-javascript.cm-plus {
+    color: #64eaff;
+}
 
 /*
     CodeMirror's use of descendant selectors for certain styling causes problems when editors are
@@ -269,6 +324,8 @@
     color: #ccc;
     background-color: #444;
 }
+
+
 
 /* Non-editor styling */
 
