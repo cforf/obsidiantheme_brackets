@@ -2,9 +2,9 @@
     "name": "cforfr.obsidian-theme",
     "title": "Obsidian Theme",
     "description": "This theme is based on Flash Develop Obsidian theme from Sébastien Bénard & Delkos Dark Theme!",
-    "homepage": "https://github.com/cforf/my-shiny-theme",
+    "homepage": "https://github.com/cforf/obsidiantheme_brackets",
     "version": "1.0.0",
-    "author": "cforf <cfrofwork@gmail.com> (http://)",
+    "author": "cforf <cfrofwork@gmail.com>",
     "license": "MIT",
     "theme": {
         "file": "theme.less",
