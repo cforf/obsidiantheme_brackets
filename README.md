@@ -1,9 +1,16 @@
-Obsidian Theme
-=================
+Obsidian Theme by cforf
+=======================
 
 Elegant and easy for reading theme.This theme is based on Obsidian theme for Flash Develop (by Sebastien Benard, deepnight.net) & Delkos Dark Theme.
 
-![screenshot](https://raw.githubusercontent.com/)
+HTML
+![screenshot](https://raw.githubusercontent.com/cforf/obsidiantheme_brackets/master/html.png)
+
+CSS
+![screenshot](https://raw.githubusercontent.com/cforf/obsidiantheme_brackets/master/css.png)
+
+JS
+![screenshot](https://raw.githubusercontent.com/cforf/obsidiantheme_brackets/master/js.png)
 
 Install
 
