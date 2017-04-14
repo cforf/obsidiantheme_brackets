@@ -118,7 +118,7 @@
     background: @selection-color;
 }
 
-.CodeMirror-matchingbracket, .CodeMirror-matchingtag {
+.CodeMirror-matchingbracket{
     color: navy!important;
     box-shadow: 0 0 0.8em #FFDE6E;
     border-radius: 0.8em;
@@ -126,6 +126,14 @@
     background-color: #FFF915;
     transform: translateZ(0);
     -webkit-animation: hilightMB 2s alternate ease-in-out infinite;
+}
+
+.cm-m-xml.CodeMirror-matchingtag.cm-bracket,/* .cm-m-xml.CodeMirror-matchingtag.cm-tag*/ {
+    border-radius: 0.5em;
+    border: 1pt solid @number-color;
+    background-color: @background;
+    transform: translateZ(0);
+    -webkit-animation: hilightMT 2s alternate ease-in-out infinite;
 }
 
 .CodeMirror-overwrite .CodeMirror-cursor {
@@ -151,6 +159,27 @@
         background-color: #FFF915;
         border: 1pt solid @number-color;
         box-shadow: 0 0 0.8em #FFDE6E;
+    }
+}
+
+@-webkit-keyframes hilightMT {
+    0% {
+        //font-weight: bolder;
+        color: black;
+        background-color: @selection-non-focus;
+        border: 1pt solid @js-word2;
+    }
+    50% {
+        //font-weight: normal;
+        color: @tag-color;
+        background-color: transparent;
+        border: 1pt solid transparent;
+    }
+    100% {
+        //font-weight: bolder;
+        color: black;
+        background-color: #FFF915;
+        border: 1pt solid @number-color;
     }
 }
 
@@ -201,6 +230,10 @@
     font-style: italic;
 }
 
+.cm-m-xml.CodeMirror-matchingtag.cm-m-xml {
+   background: @background;
+}
+
 /*--------------------------------------------*/
 /*	         Javascript Specific              */
 /*--------------------------------------------*/
@@ -234,7 +267,7 @@
 }
 
 .cm-m-javascript.cm-variable {
-    color: @attribute-color;
+    color: @foreground;//@attribute-color;
 }
 .cm-m-javascript.cm-def, .cm-m-javascript.cm-variable-2, .cm-m-javascript.cm-variable-3 {
     color: @foreground;
