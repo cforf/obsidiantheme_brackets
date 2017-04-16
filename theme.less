@@ -4,45 +4,41 @@
 
 
 /* Define some variables used in multiple places */
+
 @background: #2C4152;
 @foreground: #C8CACC;
-
-@string-color		: #EC7600;	// as the name suggests
-@attribute-color	: #9F82BD;	// used for the HTML attribute
-@comment-color		: #66757B;	// for the comments
-@comment-color2     : #50809C;  // for comments
-@error-color		: #dc322f;	// the error color
-
+@string-color		: #EC7600; // as the name suggests
+@attribute-color	: #9F82BD; // used for the HTML attribute
+@comment-color		: #66757B; // for the comments
+@comment-color2 : #50809C; // for comments
+@error-color		: #dc322f; // the error color
 //css-->
 @property-name-color	: #C8CACC; // the css property color
-@css-tag-color      : #D7C68C; // css tag color
-@css-id-color       : #BEDC18; // css id color
-@css-class-color    : #AEC916; // css class color
-@css-directive      : #C9458D; //
-@css-operators      : #99BACA; // css operators
-@css-pseudo-class   : #74C6E4; // css pseudoclass
-@css-variable       : #9CB1DA; // css variable
-
-@tag-color		: #A2D356;	// the tag selector color
-
+@css-tag-color : #D7C68C; // css tag color
+@css-id-color : #BEDC18; // css id color
+@css-class-color : #AEC916; // css class color
+@css-directive : #C9458D; //
+@css-operators : #99BACA; // css operators
+@css-pseudo-class : #74C6E4; // css pseudoclass
+@css-variable : #9CB1DA; // css variable
+@tag-color		: #A2D356; // the tag selector color
 //js-->
-@js-operators       : #E8E1B7; // js operators
-@js-word            : #678CB1; // js word
-@js-word2           : #93C763; // js word2
-
-
-@search-matches-color	: #ffff00;	// the bg color of text which matches the search string
-@selection-color	: #000000;	// the bg color of text which is teh current search match
-@selection-non-focus	: #C0FC67;	// text bg color of selection when app not in focus
-@active-line-bg		: #32495c;//#3b4c5c;//#415566;	// bg color of active line
-@folder-code-bg		: #609ED9;//#005bbb;	// bg of the folded code
-@selector-color		: #BB96CB;	// text color for the keywords
-@number-color		: #FFCD22;	// text color for numbers
-
+@js-operators : #E8E1B7; // js operators
+@js-word : #678CB1; // js word
+@js-word2 : #93C763; // js word2
+@search-matches-color	: #FFFF00; // the bg color of text which matches the search string
+@matching-brackets : #FFF915; // the bg color of matching brackets
+@selection-color	: #000000; // the bg color of text which is teh current search match
+@selection-non-focus	: #C0FC67; // text bg color of selection when app not in focus
+@active-line-bg		: #32495c; //#3b4c5c;//#415566;	// bg color of active line
+@folder-code-bg		: #609ED9; //#005bbb;	// bg of the folded code
+@selector-color		: #BB96CB; // text color for the keywords
+@number-color		: #FFCD22; // text color for numbers
 
 /* Code Styling */
 
-.CodeMirror, .CodeMirror-scroll {
+.CodeMirror,
+.CodeMirror-scroll {
     background-color: @background;
     color: @foreground;
 }
@@ -66,22 +62,69 @@
 }
 
 //for CSS-->
-.cm-m-css{
+.cm-m-css {
     color: @css-operators;
 }
 
-.cm-string, .cm-string-2, .cm-hr {color: @string-color;}
-.cm-atom {color: @selector-color}
-.cm-number {color: @number-color;}
-.cm-attribute, .cm-plus {color: @attribute-color;}
-.cm-def, .cm-property {color: @property-name-color;}
-.cm-variable, .cm-variable-2, .cm-variable-3, .cm-operator, .cm-meta, .cm-bracket {color: @foreground;}
-.cm-comment {color: @comment-color;}
-.cm-minus, .cm-error {color: @error-color;}
-.cm-link {color: @property-name-color; text-decoration: none;}
-.cm-rangeinfo {color: @tag-color;}
-.cm-keyword, .cm-qualifier, .cm-builtin, .cm-tag, .cm-quote {color: @property-name-color;
+.cm-string,
+.cm-string-2,
+.cm-hr {
+    color: @string-color;
 }
+
+.cm-atom {
+    color: @selector-color
+}
+
+.cm-number {
+    color: @number-color;
+}
+
+.cm-attribute,
+.cm-plus {
+    color: @attribute-color;
+}
+
+.cm-def,
+.cm-property {
+    color: @property-name-color;
+}
+
+.cm-variable,
+.cm-variable-2,
+.cm-variable-3,
+.cm-operator,
+.cm-meta,
+.cm-bracket {
+    color: @foreground;
+}
+
+.cm-comment {
+    color: @comment-color;
+}
+
+.cm-minus,
+.cm-error {
+    color: @error-color;
+}
+
+.cm-link {
+    color: @property-name-color;
+    text-decoration: none;
+}
+
+.cm-rangeinfo {
+    color: @tag-color;
+}
+
+.cm-keyword,
+.cm-qualifier,
+.cm-builtin,
+.cm-tag,
+.cm-quote {
+    color: @property-name-color;
+}
+
 
 /* Extra CSS */
 
@@ -96,7 +139,6 @@
         border: 1pt solid @folder-code-bg;
     }
 }
-
 
 .CodeMirror-cursor {
     border-left: 2px solid @foreground !important;
@@ -114,21 +156,23 @@
 .CodeMirror .CodeMirror-selected {
     background: #333f48;
 }
+
 .CodeMirror-focused .CodeMirror-selected {
     background: @selection-color;
 }
 
-.CodeMirror-matchingbracket{
+.CodeMirror-matchingbracket {
     color: navy!important;
     box-shadow: 0 0 0.8em #FFDE6E;
     border-radius: 0.8em;
     border: 1pt solid @number-color;
-    background-color: #FFF915;
+    background-color: @matching-brackets;
     transform: translateZ(0);
     -webkit-animation: hilightMB 2s alternate ease-in-out infinite;
 }
 
-.cm-m-xml.CodeMirror-matchingtag.cm-bracket,/* .cm-m-xml.CodeMirror-matchingtag.cm-tag*/ {
+.cm-m-xml.CodeMirror-matchingtag.cm-bracket,
+.cm-m-xml.CodeMirror-matchingtag.cm-tag {
     border-radius: 0.5em;
     border: 1pt solid @number-color;
     background-color: @background;
@@ -144,9 +188,9 @@
 @-webkit-keyframes hilightMB {
     0% {
         color: black;
-        background-color: @selection-non-focus;//#AC8CCC;
-        border: 1pt solid @js-word2;//#9F82BD;
-        box-shadow: 0 0 0.8em @selection-non-focus;//#D7AFFF;
+        background-color: @selection-non-focus; //#AC8CCC;
+        border: 1pt solid @js-word2; //#9F82BD;
+        box-shadow: 0 0 0.8em @selection-non-focus; //#D7AFFF;
     }
     50% {
         color: #E8E1B7;
@@ -156,7 +200,7 @@
     }
     100% {
         color: black;
-        background-color: #FFF915;
+        background-color: @matching-brackets;
         border: 1pt solid @number-color;
         box-shadow: 0 0 0.8em #FFDE6E;
     }
@@ -164,80 +208,119 @@
 
 @-webkit-keyframes hilightMT {
     0% {
-        //font-weight: bolder;
         color: black;
         background-color: @selection-non-focus;
         border: 1pt solid @js-word2;
     }
     50% {
-        //font-weight: normal;
         color: @tag-color;
         background-color: transparent;
         border: 1pt solid transparent;
     }
     100% {
-        //font-weight: bolder;
         color: black;
-        background-color: #FFF915;
+        background-color: @matching-brackets;
         border: 1pt solid @number-color;
     }
 }
 
-/*--------------------------------------------*/
-/*	        CSS or Stylus Specific	          */
+
 /*--------------------------------------------*/
 
-.cm-m-css.cm-tag, .cm-m-stylus.cm-tag{
+
+/*	        CSS or Stylus Specific	          */
+
+
+/*--------------------------------------------*/
+
+.cm-m-css.cm-tag,
+.cm-m-stylus.cm-tag {
     color: @css-tag-color;
 }
-.cm-m-css.cm-qualifier, .cm-m-stylus.cm-qualifier{//class
+
+.cm-m-css.cm-qualifier,
+.cm-m-stylus.cm-qualifier {
+    //class
     color: @css-class-color;
 }
-.cm-m-css.cm-builtin, .cm-m-stylus.cm-builtin{//id
+
+.cm-m-css.cm-builtin,
+.cm-m-stylus.cm-builtin {
+    //id
     color: @css-id-color;
     font-weight: bold;
 }
-.cm-m-css.cm-def, .cm-m-stylus.cm-def{//directive
+
+.cm-m-css.cm-def,
+.cm-m-stylus.cm-def {
+    //directive
     color: @css-directive;
 }
-.cm-variable, .cm-m-stylus.cm-variable{
+
+.cm-variable,
+.cm-m-stylus.cm-variable {
     color: @attribute-color;
 }
-.cm-m-css.cm-operator, .cm-m-css.cm-bracket, .cm-m-stylus.cm-operator, .cm-m-stylus.cm-bracket{
+
+.cm-m-css.cm-operator,
+.cm-m-css.cm-bracket,
+.cm-m-stylus.cm-operator,
+.cm-m-stylus.cm-bracket {
     color: @css-operators;
 }
-.cm-m-css.cm-variable-3, .cm-m-stylus.cm-variable-3{
+
+.cm-m-css.cm-variable-3,
+.cm-m-stylus.cm-variable-3 {
     color: @css-pseudo-class;
 }
-.cm-m-css.cm-keyword, .cm-m-stylus.cm-keyword{
+
+.cm-m-css.cm-keyword,
+.cm-m-stylus.cm-keyword {
     color: @css-directive;
 }
-.cm-m-css.cm-comment, .cm-m-stylus.cm-comment {
+
+.cm-m-css.cm-comment,
+.cm-m-stylus.cm-comment {
     color: @comment-color2;
 }
-.cm-m-css.cm-variable-2, .cm-m-stylus.cm-variable-2{
+
+.cm-m-css.cm-variable-2,
+.cm-m-stylus.cm-variable-2 {
     color: @css-variable;
 }
 
+
 /*--------------------------------------------*/
+
+
 /*	             HTML Specific      	      */
+
+
 /*--------------------------------------------*/
-.cm-m-xml.cm-tag{
+
+.cm-m-xml.cm-tag {
     color: @tag-color;
 }
+
 .cm-m-xml.cm-meta {
     color: #6C9928;
     font-style: italic;
 }
 
-.cm-m-xml.CodeMirror-matchingtag.cm-m-xml {
-   background: @background;
+.cm-m-xml.CodeMirror-matchingtag {
+    background: @background;
 }
 
+
 /*--------------------------------------------*/
+
+
 /*	         Javascript Specific              */
+
+
 /*--------------------------------------------*/
-.cm-m-javascript{
+
+.cm-m-javascript {
     color: @js-operators;
 }
 
@@ -251,7 +334,7 @@
     //text-shadow: 0 0 1pt #81B6EC;
 }
 
-.cm-m-javascript.cm-comment{
+.cm-m-javascript.cm-comment {
     color: @comment-color;
     //text-shadow: 0 0 2pt #1A1B1C;
 }
@@ -259,17 +342,23 @@
 .cm-m-javascript.cm-number {
     color: @number-color;
 }
-.cm-m-javascript.cm-string, .cm-m-javascript.cm-string-2{
+
+.cm-m-javascript.cm-string,
+.cm-m-javascript.cm-string-2 {
     color: @string-color;
 }
+
 .cm-m-javascript.cm-property {
     color: @attribute-color;
 }
 
 .cm-m-javascript.cm-variable {
-    color: @foreground;//@attribute-color;
+    color: @foreground; //@attribute-color;
 }
-.cm-m-javascript.cm-def, .cm-m-javascript.cm-variable-2, .cm-m-javascript.cm-variable-3 {
+
+.cm-m-javascript.cm-def,
+.cm-m-javascript.cm-variable-2,
+.cm-m-javascript.cm-variable-3 {
     color: @foreground;
 }
 
@@ -289,25 +378,20 @@
     .CodeMirror {
         background: transparent;
     }
-
     .CodeMirror .CodeMirror-gutters {
         background: transparent;
         border-right: none;
     }
-
     .CodeMirror .CodeMirror-activeline-background {
         background: transparent;
     }
-
     .CodeMirror .CodeMirror-activeline .CodeMirror-gutter-elt {
         background: transparent;
         color: #767676;
     }
-
     .CodeMirror-focused .CodeMirror-activeline-background {
         background: #2f2f2f;
     }
-
     .CodeMirror-focused .CodeMirror-activeline {
         .CodeMirror-gutter-elt {
             background: rgba(0, 0, 0, 0.2);
@@ -319,11 +403,13 @@
 .CodeMirror-foldgutter-open:after {
     color: @comment-color;
 }
+
 .CodeMirror-foldgutter-folded:after {
     color: @number-color;
 }
 
-.CodeMirror.over-gutter, .CodeMirror-activeline {
+.CodeMirror.over-gutter,
+.CodeMirror-activeline {
     .CodeMirror-foldgutter-open:after {
         color: @foreground;
     }
@@ -337,7 +423,6 @@
     font-weight: bold;
     background-color: @background;
 }
-
 
 
 /* Non-editor styling */
